@@ -28,6 +28,9 @@
 - name: ensure configure directory
   file: dest=/etc/resolvconf/resolv.conf.d state=directory
 
+- name: ensure consul file 
+  file: dest=/etc/resolvconf/resolv.conf.d/consul state=touch
+
 - name: add local dns lookup
   lineinfile: line="nameserver 127.0.0.1" insertbefore=BOF state=present dest="/etc/resolvconf/resolv.conf.d/consul"
 
