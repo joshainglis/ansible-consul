@@ -64,12 +64,10 @@
     group={{consul_group}}
     recurse=yes
 
-- name: copy consul upstart script
+- name: copy consul-template systemd service configuration
   template: >
-    src=consul.conf.j2
-    dest=/etc/init/consul.conf
-    owner={{consul_user}}
-    group={{consul_group}}
+    src=consul.conf.sysd.j2
+    dest=/etc/systemd/system/consul.service
     mode=0755
 
 - name: add consul to path through profile.d

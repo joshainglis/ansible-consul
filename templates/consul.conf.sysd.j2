@@ -1,0 +1,8 @@
+[Unit]
+Description=consul
+
+[Service]
+ExecStart={{ consul_home }}/bin/consul agent -config-dir {{ consul_config_dir }} -config-file={{ consul_config_file }} >> {{ consul_log_file }} 2>&1
+
+[Install]
+WantedBy=multi-user.target
